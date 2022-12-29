@@ -1,9 +1,12 @@
 
-export class UsuarioRepository {
+export class UsuarioService {
     private usuarios = [];
 
     async salvar (usuario) {
         this.usuarios.push(usuario);
-        console.log(this.usuarios);
+    }
+
+    async listar() {
+        return this.usuarios;
     }
 }
