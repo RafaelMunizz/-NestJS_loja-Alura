@@ -1,5 +1,6 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { useContainer } from 'class-validator';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -9,6 +10,9 @@ async function bootstrap() {
     forbidNonWhitelisted: true, // Não permite que dado não listado seja atribuido na criação
     transform: true, // Irá transformar o dado que chegará no tipo da classe
   }));
+
+  useContainer(app.select(AppModule), { fallbackOnErrors: true});
+
   await app.listen(3000);
 }
 bootstrap();
