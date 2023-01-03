@@ -10,7 +10,6 @@ export class UsuarioService {
     }
 
     async listar() {
-        console.log('LISTANDOO');
         return this.usuarios;
     }
 
@@ -59,7 +58,6 @@ export class UsuarioService {
     async remover(id: string) {
         
         const usuario = this.buscaPorId(id);
-        console.log(usuario);
         this.usuarios = this.usuarios.filter(
             usuarioSalvo => usuarioSalvo.id !== id
         );
