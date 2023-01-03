@@ -12,8 +12,6 @@ export class EmailValidator implements ValidatorConstraintInterface {
     async validate(value: any, validationArguments?: ValidationArguments): Promise<boolean> {
         const usuarioComEmailExiste = await this.usuarioService.existeComEmail(value);
 
-        console.log(this.usuarioService.teste(value));
-
         return !usuarioComEmailExiste;
     }
 } 
